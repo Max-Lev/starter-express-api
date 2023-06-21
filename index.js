@@ -1,5 +1,9 @@
 const express = require('express')
 const app = express();
+const cors = require("cors");
+app.use(cors({
+    origin: '*'
+}));
 // app.use(__dirname, 'index.html');
 // console.log(__dirname);
 // app.use(express.static('index.html'));
@@ -11,7 +15,7 @@ const app = express();
 app.all('/message', (req, res) => {
     console.log("Just got a request!")
     res.json({
-        name:'Max'
+        name: 'Max'
     });
 })
 app.listen(process.env.PORT || 3000)
